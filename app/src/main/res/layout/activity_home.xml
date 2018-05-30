@@ -20,7 +20,8 @@
             android:background="@drawable/images"
             android:text="Medical care"
             android:textColor=""
-            android:paddingRight="5dp"/>
+            android:paddingRight="5dp"
+            />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
