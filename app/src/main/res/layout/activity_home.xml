@@ -24,7 +24,11 @@
             <ImageButton
                 android:layout_width="196dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/images"
+                android:src="@drawable/images" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#C1C1C1"
                 android:alpha="0.4"/>
 
             <TextView
@@ -37,7 +41,6 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
         </FrameLayout>
-
         <FrameLayout
             android:layout_width="188dp"
             android:layout_height="wrap_content"
@@ -46,9 +49,12 @@
             <ImageButton
                 android:layout_width="196dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/images"
+                android:src="@drawable/donate" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#C1C1C1"
                 android:alpha="0.4"/>
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
@@ -74,7 +80,11 @@
             <ImageButton
                 android:layout_width="196dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/images"
+                android:src="@drawable/training" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#C1C1C1"
                 android:alpha="0.4"/>
 
             <TextView
@@ -94,9 +104,12 @@
             <ImageButton
                 android:layout_width="196dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/images"
+                android:src="@drawable/sleeping_place" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#C1C1C1"
                 android:alpha="0.4"/>
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
@@ -122,7 +135,11 @@
             <ImageButton
                 android:layout_width="196dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/images"
+                android:src="@drawable/hotline" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#C1C1C1"
                 android:alpha="0.4"/>
 
             <TextView
@@ -142,16 +159,18 @@
             <ImageButton
                 android:layout_width="196dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/images"
-                android:text="Medical care"
+                android:src="@drawable/aboutUs" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#C1C1C1"
                 android:alpha="0.4"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:gravity="center|bottom"
-
-                android:text="Medical Care"
+                android:text="About Us"
                 android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -160,7 +179,7 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
