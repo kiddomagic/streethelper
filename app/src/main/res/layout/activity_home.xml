@@ -9,6 +9,7 @@
     android:weightSum="100"
     tools:context=".HomeActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,9 +46,11 @@
             android:layout_height="wrap_content">
 
             <ImageButton
+                android:id="@+id/btnFund"
                 android:layout_width="196dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/donate" />
+                android:src="@drawable/donate"
+                android:onClick="clickToRaise"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
