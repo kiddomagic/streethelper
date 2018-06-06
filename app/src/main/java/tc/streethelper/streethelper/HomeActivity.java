@@ -15,6 +15,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
     private ImageButton mBtnFund;
+    private ImageButton mBtnFindPlace;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -35,6 +36,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void initialView(){
         mBtnFund = (ImageButton) findViewById(R.id.btnFund);
+        mBtnFindPlace = (ImageButton) findViewById(R.id.btnFindPlace);
     }
 
     @Override
@@ -52,6 +54,16 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, ContentFundRaisingActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void clickToFindPlace(View view) {
+        mBtnFindPlace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( HomeActivity.this, FindSleepPlaceActivity.class);
                 startActivity(intent);
             }
         });

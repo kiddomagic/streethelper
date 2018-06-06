@@ -101,9 +101,11 @@
             android:layout_height="wrap_content">
 
             <ImageButton
+                android:id="@+id/btnFindPlace"
                 android:layout_width="196dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/sleeping_place" />
+                android:src="@drawable/sleeping_place"
+                android:onClick="clickToFindPlace"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
