@@ -50,22 +50,12 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void clickToRaise(View view) {
-        mBtnFund.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, ContentFundRaisingActivity.class);
-                startActivity(intent);
-            }
-        });
+        Intent intent = new Intent(HomeActivity.this, ContentFundRaisingActivity.class);
+        startActivity(intent);
     }
 
     public void clickToFindPlace(View view) {
-        mBtnFindPlace.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent( HomeActivity.this, FindSleepPlaceActivity.class);
-                startActivity(intent);
-            }
-        });
+        Intent intent = new Intent( HomeActivity.this, FindSleepPlaceActivity.class);
+        startActivity(intent);
     }
 }

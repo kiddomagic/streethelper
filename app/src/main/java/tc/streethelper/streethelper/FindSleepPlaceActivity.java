@@ -37,10 +37,17 @@ public class FindSleepPlaceActivity extends FragmentActivity implements OnMapRea
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        mMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+            @Override
+            public void onMapLoaded() {
+                dismissDialog(0);
+                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                mMap.getUiSettings().setZoomControlsEnabled(true);
+            }
+        });
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng hochiminh = new LatLng(10.797837, 106.848993);
+        mMap.addMarker(new MarkerOptions().position(hochiminh).title("Marker in HoChiMinh"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hochiminh, 18));
     }
 }
