@@ -40,7 +40,8 @@
 
         <activity
             android:name=".FindSleepPlaceActivity"
-            android:label="@string/title_activity_find_sleep_place"></activity>
+            android:label="@string/title_activity_find_sleep_place" />
+        <activity android:name=".MapActivity"></activity>
     </application>
 
 </manifest>

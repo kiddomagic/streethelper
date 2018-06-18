@@ -47,7 +47,7 @@ public class FindSleepPlaceActivity extends FragmentActivity implements OnMapRea
         });
         // Add a marker in Sydney and move the camera
         LatLng hochiminh = new LatLng(10.797837, 106.848993);
-        mMap.addMarker(new MarkerOptions().position(hochiminh).title("Marker in HoChiMinh"));
+        mMap.addMarker(new MarkerOptions().position(hochiminh).title("The position that need help"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hochiminh, 18));
     }
 }
