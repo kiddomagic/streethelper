@@ -50,7 +50,7 @@ public class FindSleepPlaceActivity extends FragmentActivity implements OnMapRea
         });
         // Add a marker in Sydney and move the camera
         LatLng hochiminh = new LatLng(10.857178, 106.654401);
-        mMap.addMarker(new MarkerOptions().position(hochiminh).title("Nhà thờ Nữ Vương Hòa Bình").snippet("Địa chỉ: Lê Đức Thọ, Q. Gò Vấp");
+        mMap.addMarker(new MarkerOptions().position(hochiminh).title("Nhà thờ Nữ Vương Hòa Bình").snippet("Địa chỉ: Lê Đức Thọ, Q. Gò Vấp"));
         mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
             @Override
             public View getInfoWindow(Marker marker) {
