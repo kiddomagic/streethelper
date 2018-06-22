@@ -1,9 +1,13 @@
 package tc.streethelper.streethelper;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     };
 
-    private void initialView(){
+    private void initialView() {
         mBtnFund = (ImageButton) findViewById(R.id.btnFund);
         mBtnFindPlace = (ImageButton) findViewById(R.id.btnFindPlace);
     }
@@ -55,7 +59,22 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void clickToFindPlace(View view) {
-        Intent intent = new Intent( HomeActivity.this, FindSleepPlaceActivity.class);
+        Intent intent = new Intent(HomeActivity.this, FindSleepPlaceActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickToCall(View view) {
+        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:01682523475"));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         startActivity(intent);
     }
 }

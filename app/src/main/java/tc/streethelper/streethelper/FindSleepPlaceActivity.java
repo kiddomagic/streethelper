@@ -2,6 +2,7 @@ package tc.streethelper.streethelper;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,7 +14,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class FindSleepPlaceActivity extends FragmentActivity implements OnMapReadyCallback {
+public class FindSleepPlaceActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -51,19 +52,19 @@ public class FindSleepPlaceActivity extends FragmentActivity implements OnMapRea
         // Add a marker in Sydney and move the camera
         LatLng hochiminh = new LatLng(10.857178, 106.654401);
         mMap.addMarker(new MarkerOptions().position(hochiminh).title("Nhà thờ Nữ Vương Hòa Bình").snippet("Địa chỉ: Lê Đức Thọ, Q. Gò Vấp"));
-        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-            @Override
-            public View getInfoWindow(Marker marker) {
-                return null;
-            }
-
-            @Override
-            public View getInfoContents(Marker marker) {
-                View v = getLayoutInflater().inflate(R.layout.activity_find_sleep_place, null);
-                TextView mTxtLat = (TextView) v.findViewById(R.id.map);
-                return null;
-            }
-        });
+//        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+//            @Override
+//            public View getInfoWindow(Marker marker) {
+//                return null;
+//            }
+//
+//            @Override
+//            public View getInfoContents(Marker marker) {
+//                View v = getLayoutInflater().inflate(R.layout.activity_find_sleep_place, null);
+//                TextView mTxtLat = (TextView) v.findViewById(R.id.map);
+//                return null;
+//            }
+//        });
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hochiminh, 18));
     }
 }
