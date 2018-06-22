@@ -2,12 +2,15 @@ package tc.streethelper.streethelper;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class FindSleepPlaceActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -46,8 +49,21 @@ public class FindSleepPlaceActivity extends FragmentActivity implements OnMapRea
             }
         });
         // Add a marker in Sydney and move the camera
-        LatLng hochiminh = new LatLng(10.85, 106.655);
-        mMap.addMarker(new MarkerOptions().position(hochiminh).title("The position that need help"));
+        LatLng hochiminh = new LatLng(10.857178, 106.654401);
+        mMap.addMarker(new MarkerOptions().position(hochiminh).title("Nhà thờ Nữ Vương Hòa Bình").snippet("Địa chỉ: Lê Đức Thọ, Q. Gò Vấp");
+        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+            @Override
+            public View getInfoWindow(Marker marker) {
+                return null;
+            }
+
+            @Override
+            public View getInfoContents(Marker marker) {
+                View v = getLayoutInflater().inflate(R.layout.activity_find_sleep_place, null);
+                TextView mTxtLat = (TextView) v.findViewById(R.id.map);
+                return null;
+            }
+        });
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hochiminh, 18));
     }
 }
