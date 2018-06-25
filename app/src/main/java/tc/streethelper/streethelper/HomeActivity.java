@@ -77,4 +77,9 @@ public class HomeActivity extends AppCompatActivity {
         }
         startActivity(intent);
     }
+
+    public void clickToMedical(View view) {
+        Intent intent = new Intent(HomeActivity.this, MedicalFindingActivity.class);
+        startActivity(intent);
+    }
 }
