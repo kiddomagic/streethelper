@@ -37,7 +37,7 @@
                 android:layout_height="90dp"
                 android:gravity="center|bottom"
 
-                android:text="Medical Care"
+                android:text="Chăm sóc y tế"
                 android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -61,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:gravity="center|bottom"
-                android:text="Fund raising"
+                android:text="Gây quỹ"
                 android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -92,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:gravity="center|bottom"
-                android:text="Job Training"
+                android:text="Đào tạo nghề"
                 android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -116,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:gravity="center|bottom"
-                android:text="Find Place"
+                android:text="Tìm chỗ ngủ"
                 android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -171,7 +171,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:gravity="center|bottom"
-                android:text="About Us"
+                android:text="Về chúng tôi"
                 android:textColor="#000000"
                 android:textSize="20dp"
                 android:textStyle="bold" />

@@ -15,7 +15,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                app:srcCompat="@drawable/need_help_man_1" />
+                android:src="@drawable/need_help_man_1" />
 
             <TextView
                 android:id="@+id/textView"
