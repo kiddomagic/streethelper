@@ -2,6 +2,7 @@ package tc.streethelper.streethelper;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class ContentFundRaisingActivity extends AppCompatActivity {
 
@@ -15,5 +16,8 @@ public class ContentFundRaisingActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         finish();
+    }
+
+    public void clickToSort(View view) {
     }
 }
