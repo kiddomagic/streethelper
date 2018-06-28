@@ -18,12 +18,14 @@ public class FundingCharacterAdapter extends ArrayAdapter<FundingCharacter> {
     private Context context;
     private int resource;
     private List<FundingCharacter> arrFunding;
+    private LayoutInflater inflater;
 
     public FundingCharacterAdapter(Context context, int resource, @NonNull List<FundingCharacter> arrFunding) {
         super(context, resource, arrFunding);
         this.context = context;
         this.resource = resource;
         this.arrFunding = arrFunding;
+        this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @NonNull
