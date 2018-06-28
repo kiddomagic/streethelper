@@ -48,9 +48,9 @@ public class FundingCharacterAdapter extends ArrayAdapter<FundingCharacter> {
         FundingCharacter fundingCharacter = arrFunding.get(position);
         Picasso.get().load(fundingCharacter.getImgTag()).into(viewHolder.imgAvt);
         viewHolder.txtName.setText(fundingCharacter.getName());
-        viewHolder.txtCurrent.setText(fundingCharacter.getCurrentBudget());
-        viewHolder.txtTarget.setText(fundingCharacter.getTargetBudgget());
-        viewHolder.txtStorySummary.setText(fundingCharacter.getSummaryStory());
+        viewHolder.txtCurrent.setText("Quyên góp hiện tại: "+ fundingCharacter.getCurrentBudget());
+        viewHolder.txtTarget.setText("Mục tiêu quyên góp" + fundingCharacter.getTargetBudgget());
+        viewHolder.txtStorySummary.setText("Câu chuyện nhân vật: " + fundingCharacter.getSummaryStory());
 
         return convertView;
 
