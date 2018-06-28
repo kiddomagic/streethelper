@@ -8,20 +8,14 @@
     <string name="title_activity_find_sleep_place">Tìm chỗ ngủ</string>
     <string name="title_activity_introduction">Về chúng tôi</string>
     <string name="large_text">
-        "// đoạn dưới nói về: tổ chức mình làm gì, mục đích của tổ chức, sứ mệnh của tổ chức\n"
-        "OurCalling is a discipleship ministry for the homeless. Ourcalling is a faith-based nonprofit organization that serves the unsheltered homeless community throughout Dallas County. It is our mission to build long-term relationships with homeless individuals to a relationship with Jesus Christ and to invest in their lives through Christian discipleship. Our conviction is that every Christian believer should live a life of righteousness, holiness, integrity, and accountability.\n\n"
+        "StreetHelper là dự án giúp đỡ những người vô gia cư. Mục tiêu của dự án nhằm giúp người vô gia cư có thể vượt qua khó khăn của họ mà không thu lại bất kì lợi nhuận nào.\n\n"
 
-        "// đoạn này nêu ra những nhóm người hoạn nạn và kêu gọi sự quan tâm của mọi người\n"
-        "WHAT IS YOUR CALLING?\n"
-        "The disease is dysfunction. It's symptoms often include being homeless, jobless, addicted, mentally ill, emotionally bankrupt and being impoverished physically, socially and spiritually. You see people like this every day, all over your city. How long can you ignore them? By avoiding the problem you are becoming part of it"
-
-        "// đoạn này về tôn giáo\n"
-        "WARNING: SPIRITUAL CONTENT!\n"
-        "Unashamely, we are a Christ-claiming organization. However, in offering our programs and services, we do not dicriminate on the basis of religion. We share our Christian faith with everyone who visits us, but we deny our services to no one. Trusting in Jesus is necessary for eternal life, but it is not a requirement for participating in our daily programs.\n\n"
+        "Nhóm người mà chúng tôi hướng tới\n"
+        "Trước mắt là nhóm người không có nhà, không có việc. Sau đó chúng tôi hướng tới những người bị bệnh bất ngờ, tai nạn... Bạn có thể ít gặp những hình ảnh này nhưng họ vẫn luôn hiện hữu trong cuộc sống chúng ta."
 		
 		"// đoạn này nói về định hướng tương lai\n"
-        "So, what's next?\n"
-        "At OurCalling, we build personal relationships with homeless friends in order address the bigger issues. We want to invite you into that adventure with us."
+        "Điều gì sẽ diễn ra tiếp theo?\n"
+        "Tại StreetHelper, chúng tôi xây dựng mối liên hệ thân thiết với những người vô gia cưđể giải quyết những vấn đề to lớn hơn. Chúng tôi mong muốn được mời bạn cùng chúng tôi thực hiện chuyến phiêu lưu thú vị này."
     </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_medical_finding">Medical</string>
