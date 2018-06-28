@@ -6,6 +6,25 @@ public class FundingCharacter {
     private String summaryStory;
     private int targetBudgget;
     private int currentBudget;
+    private String imgTag;
+
+    public String getImgTag() {
+        return imgTag;
+    }
+
+    public void setImgTag(String imgTag) {
+        this.imgTag = imgTag;
+    }
+
+    public FundingCharacter(String name, String story, String summaryStory, int targetBudgget, int currentBudget, String imgTag) {
+
+        this.name = name;
+        this.story = story;
+        this.summaryStory = summaryStory;
+        this.targetBudgget = targetBudgget;
+        this.currentBudget = currentBudget;
+        this.imgTag = imgTag;
+    }
 
     public FundingCharacter(String name, String story, String summaryStory, int targetBudgget, int currentBudget) {
         this.name = name;
