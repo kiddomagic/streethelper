@@ -29,7 +29,11 @@ public class ContentFundRaisingActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent( ContentFundRaisingActivity.this, ContentCharacterActivity.class);
-                intent.putExtra("Character", (Serializable) mCharacters.get(position));
+                intent.putExtra("name", (Serializable) mCharacters.get(position).getName());
+                intent.putExtra("story", (Serializable) mCharacters.get(position).getStory());
+                intent.putExtra("target", (Serializable) mCharacters.get(position).getTargetBudgget());
+                intent.putExtra("current", (Serializable) mCharacters.get(position).getCurrentBudget());
+                intent.putExtra("image", (Serializable) mCharacters.get(position).getImgTag());
                 startActivity(intent);
             }
         });
