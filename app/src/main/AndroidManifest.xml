@@ -9,7 +9,7 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -46,7 +46,8 @@
         <activity android:name=".MapActivity" />
         <activity
             android:name=".MedicalFindingActivity"
-            android:label="@string/title_activity_medical_finding"></activity>
+            android:label="@string/title_activity_medical_finding" />
+        <activity android:name=".ContentCharacterActivity"></activity>
     </application>
 
 </manifest>

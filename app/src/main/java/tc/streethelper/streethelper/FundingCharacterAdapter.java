@@ -51,7 +51,6 @@ public class FundingCharacterAdapter extends ArrayAdapter<FundingCharacter> {
         viewHolder.txtCurrent.setText("Quyên góp hiện tại: "+ fundingCharacter.getCurrentBudget());
         viewHolder.txtTarget.setText("Mục tiêu quyên góp" + fundingCharacter.getTargetBudgget());
         viewHolder.txtStorySummary.setText("Câu chuyện nhân vật: " + fundingCharacter.getSummaryStory());
-
         return convertView;
 
     }
