@@ -2,9 +2,8 @@ package tc.streethelper.streethelper;
 
 import android.graphics.Color;
 import android.location.Location;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBar;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
 import com.akexorcist.googledirection.DirectionCallback;
@@ -87,6 +86,8 @@ public class MedicalFindingActivity extends FragmentActivity implements OnMapRea
                     polylines.get(0).remove();
                     polylines.remove(0);
                 }
+
+                Toast.makeText(MedicalFindingActivity.this, "abc", Toast.LENGTH_SHORT).show();
                 Location curPosition = mMap.getMyLocation();
                 String serverKey = "AIzaSyAw_wWGQoFu8LpWqUs6iCn73WERk0SBKHU";
                 GoogleDirection.withServerKey(serverKey)

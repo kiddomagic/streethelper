@@ -39,14 +39,14 @@ public class FundingCharacterAdapter extends ArrayAdapter<FundingCharacter> {
             viewHolder.txtStorySummary = (TextView) convertView.findViewById(R.id.txtSummaryStory);
             viewHolder.txtTarget = (TextView) convertView.findViewById(R.id.txtTarget);
             viewHolder.txtCurrent = (TextView) convertView.findViewById(R.id.txtCurrent);
-            viewHolder.imgAvt = (ImageView) convertView.findViewById(R.id.imgView);
+            viewHolder.imgView = (ImageView) convertView.findViewById(R.id.imgView);
 
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         FundingCharacter fundingCharacter = arrFunding.get(position);
-        Picasso.get().load(fundingCharacter.getImgTag()).into(viewHolder.imgAvt);
+        Picasso.get().load(fundingCharacter.getImgTag()).into(viewHolder.imgView);
         viewHolder.txtName.setText(fundingCharacter.getName());
         viewHolder.txtCurrent.setText("Quyên góp hiện tại: "+ fundingCharacter.getCurrentBudget());
         viewHolder.txtTarget.setText("Mục tiêu quyên góp" + fundingCharacter.getTargetBudgget());
@@ -57,6 +57,6 @@ public class FundingCharacterAdapter extends ArrayAdapter<FundingCharacter> {
 
     public class ViewHolder {
         TextView txtName, txtStorySummary, txtTarget, txtCurrent;
-        ImageView imgAvt;
+        ImageView imgView;
     }
 }

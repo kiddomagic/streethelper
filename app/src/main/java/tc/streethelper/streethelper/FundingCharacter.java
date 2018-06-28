@@ -1,6 +1,8 @@
 package tc.streethelper.streethelper;
 
-public class FundingCharacter {
+import java.io.Serializable;
+
+public class FundingCharacter implements Serializable{
     private String name;
     private  String story;
     private String summaryStory;
