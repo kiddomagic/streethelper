@@ -47,7 +47,8 @@
         <activity
             android:name=".MedicalFindingActivity"
             android:label="@string/title_activity_medical_finding" />
-        <activity android:name=".ContentCharacterActivity"></activity>
+        <activity android:name=".ContentCharacterActivity" />
+        <activity android:name=".JobTrainingActivity"></activity>
     </application>
 
 </manifest>

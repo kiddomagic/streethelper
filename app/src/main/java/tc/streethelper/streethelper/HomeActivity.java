@@ -82,4 +82,14 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = new Intent(HomeActivity.this, MedicalFindingActivity.class);
         startActivity(intent);
     }
+
+    public void clickToIntroduce(View view) {
+        Intent intent = new Intent( HomeActivity.this, IntroductionActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickToFind(View view) {
+        Intent intent = new Intent( HomeActivity.this, JobTrainingActivity.class);
+        startActivity(intent);
+    }
 }
