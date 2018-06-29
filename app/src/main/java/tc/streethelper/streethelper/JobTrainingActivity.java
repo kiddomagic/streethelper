@@ -14,6 +14,7 @@ public class JobTrainingActivity extends AppCompatActivity {
 
     private List<Company> companies = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
