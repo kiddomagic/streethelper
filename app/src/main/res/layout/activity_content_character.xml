@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="600dp">
@@ -38,7 +39,7 @@
                     android:text="Vas"
                     android:textSize="35dp" />
 
-                <TextView
+                <!--<TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -46,7 +47,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="254dp"
                     android:text="TARGET CAREER: ELECTRICIAN"
-                    android:textSize="20dp" />
+                    android:textSize="20dp" />-->
 
                 <TextView
                     android:id="@+id/editText"
@@ -54,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="159dp"
+                    android:layout_marginBottom="193dp"
                     android:ems="10"
                     android:inputType="textMultiLine"
                     android:text="@string/storyOfMan1"

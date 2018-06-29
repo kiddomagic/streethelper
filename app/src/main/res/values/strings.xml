@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Home</string>
+    <string name="app_name">StreetHelper</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -7,6 +7,7 @@
     <string name="app_info">Thông tin ứng dụng</string>
     <string name="title_activity_find_sleep_place">Tìm chỗ ngủ</string>
     <string name="title_activity_introduction">Về chúng tôi</string>
+    <string name="title_activity_job_training">Đào tạo nghề</string>
     <string name="large_text">
         "StreetHelper là dự án giúp đỡ những người vô gia cư. Mục tiêu của dự án nhằm giúp người vô gia cư có thể vượt qua khó khăn của họ mà không thu lại bất kì lợi nhuận nào.\n\n"
 
