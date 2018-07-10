@@ -15,6 +15,7 @@ public class ContentFundRaisingActivity extends AppCompatActivity {
 
     private ListView mLvCharacters;
     private ArrayList<FundingCharacter> mCharacters;
+    final int REQUEST_HELP  = 50;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,5 +61,17 @@ public class ContentFundRaisingActivity extends AppCompatActivity {
     }
 
     public void clickToSort(View view) {
+    }
+
+    public void clickToReport(View view) {
+        Intent intent = new Intent(ContentFundRaisingActivity.this, ReportHelpingPersonActivity.class);
+        startActivityForResult(intent, REQUEST_HELP);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_HELP && resultCode == RESULT_OK) {
+            Toast.makeText( ContentFundRaisingActivity.this, "Thông tin đẩy lên thành công, kiểm duyệt sau 72h", Toast.LENGTH_SHORT);
+        }
     }
 }

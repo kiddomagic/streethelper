@@ -52,6 +52,9 @@
         <activity android:name=".JobTrainingActivity" />
         <activity android:name=".AddCompanyActivity" />
         <activity android:name=".ReportHelpingPersonActivity"></activity>
+        <meta-data
+            android:name="com.google.android.play.API_KEY"
+            android:value="AIzaSyC9b3g1NL9L8usildqQH2_dWikaiBazQm4"/>
     </application>
 
 </manifest>
