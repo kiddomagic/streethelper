@@ -1,9 +1,11 @@
 package tc.streethelper.streethelper;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
 import android.widget.Toast;
 
 import com.akexorcist.googledirection.DirectionCallback;
@@ -29,6 +31,9 @@ import java.util.List;
 public class MedicalFindingActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    static final int REQUEST_HELP = 50;
+    private List<LatLng> places = new ArrayList<>();
+    private List<String> names = new ArrayList<>(), ages = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +69,11 @@ public class MedicalFindingActivity extends FragmentActivity implements OnMapRea
         // Add a marker in Sydney and move the camera
         LatLng hochiminh = new LatLng(10.8607196, 106.630514);
         mMap.addMarker(new MarkerOptions().position(hochiminh).title("Bệnh viện Q12").snippet("Địa chỉ: 111 Dương Thị Mười, Tân Chánh Hiệp, 12, Hồ Chí Minh"));
+        if (!places.isEmpty() && !names.isEmpty() && !ages.isEmpty()) {
+            for (int i = 0; i < places.size(); i++) {
+                mMap.addMarker(new MarkerOptions().position(places.get(i)).title("Người cần giúp tên: " + names.get(i)).snippet("Tuổi: " + ages.get(i) + " (Thông tin đang kiểm duyệt)" ));
+            }
+        }
 //        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
 //            @Override
 //            public View getInfoWindow(Marker marker) {
@@ -119,5 +129,22 @@ public class MedicalFindingActivity extends FragmentActivity implements OnMapRea
                 return false;
             }
         });
+    }
+
+    public void clickToReport(View view) {
+        Intent intent = new Intent( MedicalFindingActivity.this, ReportHelpingPersonActivity.class);
+        startActivityForResult(intent, REQUEST_HELP);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if ( requestCode == REQUEST_HELP && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            places.add((LatLng) extras.get("latLgn"));
+            mMap.addMarker(new MarkerOptions().position(places.get(places.size() - 1)).title("Người cần giúp tên: " + extras.getString("name")).snippet("Tuổi: " + extras.getString("age") + " (Thông tin đang kiểm duyệt)" ));
+            names.add(extras.getString("name"));
+            ages.add(extras.getString("age"));
+            Toast.makeText(MedicalFindingActivity.this, "Đã nhận thông tin, kiểm duyệt sau 72h", Toast.LENGTH_SHORT);
+        }
     }
 }
