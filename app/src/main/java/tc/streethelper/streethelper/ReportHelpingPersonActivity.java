@@ -27,7 +27,7 @@ public class ReportHelpingPersonActivity extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int WIDTH = 300;
     static Location mCLocation;
-    private LinearLayout layout;
+    private LinearLayout layout = (LinearLayout) findViewById(R.id.clayout);
     private LocationManager mLocation;
     private Bitmap bitmap;
 
@@ -36,7 +36,6 @@ public class ReportHelpingPersonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_helping_person);
-        layout = (LinearLayout) findViewById(R.id.clayout);
     }
 
     public void clickToShot(View view) {
