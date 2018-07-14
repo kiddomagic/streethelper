@@ -50,8 +50,9 @@ public class ReportHelpingPersonActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             bitmap = imageBitmap;
-            layout.setOrientation(LinearLayout.HORIZONTAL);
-            layout.removeAllViews();
+            View vLayout = getLayoutInflater().inflate(R.layout.blank_layout, null, false);
+            //layout.removeAllViews();
+            layout.addView(vLayout);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(WIDTH, ViewGroup.LayoutParams.WRAP_CONTENT);
             TextView textView = new TextView(this);
             mLocation = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
