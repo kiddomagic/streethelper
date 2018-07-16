@@ -129,7 +129,6 @@ public class FindSleepPlaceActivity extends AppCompatActivity implements OnMapRe
                     polylines.get(0).remove();
                     polylines.remove(0);
                 }
-                Toast.makeText(FindSleepPlaceActivity.this, "Enter onclick", Toast.LENGTH_SHORT).show();
                 Location curPosition = mMap.getMyLocation();
                 String serverKey = "AIzaSyAw_wWGQoFu8LpWqUs6iCn73WERk0SBKHU";
                 GoogleDirection.withServerKey(serverKey)

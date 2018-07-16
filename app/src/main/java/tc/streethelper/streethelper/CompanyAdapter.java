@@ -32,16 +32,21 @@ public class CompanyAdapter extends ArrayAdapter<Company> {
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         ViewHolder viewHolder;
         if (convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.funding_character_item, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.company_list, parent, false);
             viewHolder = new ViewHolder();
             viewHolder.txtName = (TextView) convertView.findViewById(R.id.txtCompany);
             viewHolder.txtAddress = (TextView) convertView.findViewById(R.id.txtAddress);
             viewHolder.txtPhone = (TextView) convertView.findViewById(R.id.txtPhone);
             convertView.setTag(viewHolder);
+//            System.out.println("null convertView");
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         Company company = arrFunding.get(position);
+//        if(company == null)
+//            System.out.println("null companry");
+//        if(viewHolder.txtName == null)
+//            System.out.println("null txtName");
         viewHolder.txtName.setText(company.getName());
         viewHolder.txtAddress.setText(company.getAddress());
         viewHolder.txtPhone.setText(company.getPhone());

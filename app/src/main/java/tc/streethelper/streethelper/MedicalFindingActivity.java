@@ -1,9 +1,12 @@
 package tc.streethelper.streethelper;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -87,7 +90,18 @@ public class MedicalFindingActivity extends FragmentActivity implements OnMapRea
 //                return null;
 //            }
 //        });
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hochiminh, 18));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(hochiminh, 16));
         final List<Polyline> polylines = new ArrayList<>();
 		mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
@@ -97,7 +111,7 @@ public class MedicalFindingActivity extends FragmentActivity implements OnMapRea
                     polylines.remove(0);
                 }
 
-                Toast.makeText(MedicalFindingActivity.this, "abc", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MedicalFindingActivity.this, "abc", Toast.LENGTH_SHORT).show();
                 Location curPosition = mMap.getMyLocation();
                 String serverKey = "AIzaSyAw_wWGQoFu8LpWqUs6iCn73WERk0SBKHU";
                 GoogleDirection.withServerKey(serverKey)
@@ -113,7 +127,7 @@ public class MedicalFindingActivity extends FragmentActivity implements OnMapRea
                                 ArrayList<LatLng> pointList = leg.getDirectionPoint();
 
                                 ArrayList<LatLng> directionPositionList = leg.getDirectionPoint();
-                                PolylineOptions polylineOptions = DirectionConverter.createPolyline(MedicalFindingActivity.this, directionPositionList, 5, Color.RED);
+                                PolylineOptions polylineOptions = DirectionConverter.createPolyline(MedicalFindingActivity.this, directionPositionList, 5, Color.BLUE);
 //                                mMap.addPolyline(polylineOptions);
                                 polylines.add(mMap.addPolyline(polylineOptions));
                             }
@@ -133,18 +147,21 @@ public class MedicalFindingActivity extends FragmentActivity implements OnMapRea
 
     public void clickToReport(View view) {
         Intent intent = new Intent( MedicalFindingActivity.this, ReportHelpingPersonActivity.class);
+        intent.putExtra("la", mMap.getMyLocation().getLatitude());
+        intent.putExtra("lng", mMap.getMyLocation().getLongitude());
         startActivityForResult(intent, REQUEST_HELP);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if ( requestCode == REQUEST_HELP && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
-            places.add((LatLng) extras.get("latLgn"));
+            places.add((LatLng) extras.get("latLng"));
             mMap.addMarker(new MarkerOptions().position(places.get(places.size() - 1)).title("Người cần giúp tên: " + extras.getString("name")).snippet("Tuổi: " + extras.getString("age") + " (Thông tin đang kiểm duyệt)" ));
             names.add(extras.getString("name"));
             ages.add(extras.getString("age"));
-            Toast.makeText(MedicalFindingActivity.this, "Đã nhận thông tin, kiểm duyệt sau 72h", Toast.LENGTH_SHORT);
+            Toast.makeText(MedicalFindingActivity.this, "Đã nhận thông tin, kiểm duyệt sau 72h", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -1,12 +1,16 @@
 package tc.streethelper.streethelper;
 
 import android.content.Intent;
+import android.location.GpsSatellite;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.internal.IGoogleMapDelegate;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,7 +19,7 @@ public class ContentFundRaisingActivity extends AppCompatActivity {
 
     private ListView mLvCharacters;
     private ArrayList<FundingCharacter> mCharacters;
-    final int REQUEST_HELP  = 50;
+    static final int REQUEST_HELP  = 50;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +37,8 @@ public class ContentFundRaisingActivity extends AppCompatActivity {
                 Intent intent = new Intent( ContentFundRaisingActivity.this, ContentCharacterActivity.class);
                 intent.putExtra("name", (Serializable) mCharacters.get(position).getName());
                 intent.putExtra("story", (Serializable) mCharacters.get(position).getStory());
-                intent.putExtra("target", (Serializable) mCharacters.get(position).getTargetBudgget());
-                intent.putExtra("current", (Serializable) mCharacters.get(position).getCurrentBudget());
+                intent.putExtra("target", " "+ mCharacters.get(position).getTargetBudgget());
+                intent.putExtra("current", " "+ mCharacters.get(position).getCurrentBudget());
                 intent.putExtra("image", (Serializable) mCharacters.get(position).getImgTag());
                 startActivity(intent);
             }
@@ -64,14 +68,21 @@ public class ContentFundRaisingActivity extends AppCompatActivity {
     }
 
     public void clickToReport(View view) {
+
         Intent intent = new Intent(ContentFundRaisingActivity.this, ReportHelpingPersonActivity.class);
+        intent.putExtra("la", 10.1);
+        intent.putExtra("lng", 126.5);
         startActivityForResult(intent, REQUEST_HELP);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+//        Toast.makeText(ContentFundRaisingActivity.this, ""+requestCode+" "+resultCode, Toast.LENGTH_LONG);
+//        System.out.println("result: "+requestCode+" "+resultCode);
         if (requestCode == REQUEST_HELP && resultCode == RESULT_OK) {
-            Toast.makeText( ContentFundRaisingActivity.this, "Thông tin đẩy lên thành công, kiểm duyệt sau 72h", Toast.LENGTH_SHORT);
+            Toast.makeText( ContentFundRaisingActivity.this, "Thông tin đẩy lên thành công, kiểm duyệt sau 72h", Toast.LENGTH_SHORT).show();
+
         }
     }
 }

@@ -1,6 +1,7 @@
 package tc.streethelper.streethelper;
 
 import android.Manifest;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,18 +20,23 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 
 public class ReportHelpingPersonActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    static final int REQUEST_IMAGE_RECAPTURE = 2;
     static final int WIDTH = 300;
     static Location mCLocation;
-    private LinearLayout layout = (LinearLayout) findViewById(R.id.clayout);
+    private LinearLayout layout;
     private LocationManager mLocation;
     private Bitmap bitmap;
-
+    private GoogleMap mMap;
+    double myLa = 0;
+    double myLng = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +49,27 @@ public class ReportHelpingPersonActivity extends AppCompatActivity {
         startActivityForResult(camera, REQUEST_IMAGE_CAPTURE);
     }
 
+    public void clickToReShot(View view) {
+        Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(camera, REQUEST_IMAGE_RECAPTURE);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+//        Location curLocation = (Location) getIntent().getSerializableExtra("MyLocation");
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            double curLat = (double) getIntent().getSerializableExtra("la");
+            double curLng = (double) getIntent().getSerializableExtra("lng");
+            myLa = curLat;
+            myLng = curLng;
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             bitmap = imageBitmap;
-            View vLayout = getLayoutInflater().inflate(R.layout.blank_layout, null, false);
+            layout = (LinearLayout) findViewById(R.id.imgLayout);
             //layout.removeAllViews();
-            layout.addView(vLayout);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(WIDTH, ViewGroup.LayoutParams.WRAP_CONTENT);
+//            layout.addView(vLayout);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             TextView textView = new TextView(this);
             mLocation = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             Intent intent = new Intent(this, ReportHelpingPersonActivity.class);
@@ -67,12 +83,11 @@ public class ReportHelpingPersonActivity extends AppCompatActivity {
                 // for ActivityCompat#requestPermissions for more details.
                 return;
             }
-            mLocation.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) intent);
             LocationListener listener = new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
-                      mCLocation = location;
-                      return;
+                    mCLocation = location;
+                    return;
                 }
 
                 @Override
@@ -90,8 +105,16 @@ public class ReportHelpingPersonActivity extends AppCompatActivity {
 
                 }
             };
-            textView.setText("Người cần hỗ trợ ở vị trí " + mCLocation.getLatitude() + " " + mCLocation.getLongitude() + " lúc bạn chụp");
+            mLocation.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, listener);
+//            textView.setText("Người cần hỗ trợ ở vị trí " + mCLocation.getLatitude() + " " + mCLocation.getLongitude() + " lúc bạn chụp");
+//            Location curLocation = (Location) getIntent().getSerializableExtra("MyLocation");
+
+            textView.setText("Người cần hỗ trợ ở vị trí " + curLat + " " + curLng + " lúc bạn chụp");
+            textView.setTextSize(18);
+            TextView textDef = (TextView) findViewById(R.id.textDefault);
+            textDef.setText("");
             textView.setLayoutParams(layoutParams);
+            textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             layout.addView(textView);
             ImageView imageView = new ImageView(this);
             imageView.setLayoutParams(layoutParams);
@@ -107,6 +130,8 @@ public class ReportHelpingPersonActivity extends AppCompatActivity {
                     clickToShot(view);
                 }
             });
+        } else {
+
         }
     }
 
@@ -114,15 +139,31 @@ public class ReportHelpingPersonActivity extends AppCompatActivity {
         EditText edtName = (EditText) findViewById(R.id.edtName);
         EditText edtAge = (EditText) findViewById(R.id.edtAge);
         EditText edtPhone = (EditText) findViewById(R.id.edtPhone);
-        LatLng latLng = new LatLng(mCLocation.getLatitude(), mCLocation.getLongitude());
+        LatLng latLng = new LatLng(myLa, myLng);
         Intent intent = this.getIntent();
         Bundle bundle = new Bundle();
-        intent.putExtra( "name", edtName.getText().toString());
-        intent.putExtra( "age", edtAge.getText().toString());
-        intent.putExtra( "phone", edtPhone.getText().toString());
-        intent.putExtra( "latLng", latLng);
+        intent.putExtra("name", edtName.getText().toString());
+        intent.putExtra("age", edtAge.getText().toString());
+        intent.putExtra("phone", edtPhone.getText().toString());
+        intent.putExtra("latLng", latLng);
         intent.putExtra("bitmap", bitmap);
-        this.setResult(RESULT_OK);
+        this.setResult(RESULT_OK, intent);
         finish();
+    }
+
+    public Location getCurrentLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return null;
+        }
+        mMap.setMyLocationEnabled(true);
+
+        return mMap.getMyLocation();
     }
 }

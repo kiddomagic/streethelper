@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -12,15 +13,17 @@ import java.util.List;
 
 public class JobTrainingActivity extends AppCompatActivity {
 
-    private List<Company> companies = new ArrayList<>();
-
+    private ArrayList<Company> companies = new ArrayList<>();
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_training);
         initData();
-        ArrayAdapter<Company> adapter = new ArrayAdapter(JobTrainingActivity.this, R.layout.company_list, companies);
+        CompanyAdapter adapter = new CompanyAdapter(JobTrainingActivity.this, R.layout.company_list, companies);
+        listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(adapter);
     }
 
     private void initData() {

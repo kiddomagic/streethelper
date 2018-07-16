@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +8,13 @@
     android:orientation="vertical"
     tools:context=".ReportHelpingPersonActivity">
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/imgLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -21,6 +29,7 @@
             android:text=" "
             android:textSize="18dp"/>
         <TextView
+            android:id="@+id/textDefault"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bạn chưa up thông tin hình ânhr về đối tượng cần được trợ giúp"
@@ -71,4 +80,5 @@
         android:layout_height="wrap_content"
         android:text="Gửi thông tin"
         android:onClick="clickToSubmit"/>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
