@@ -26,7 +26,6 @@
                 android:text="Vị trí cần trợ giúp"
                 android:textSize="25dp"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold"
                 android:id="@+id/txtMenu"/>
 
             <android.support.v7.widget.ActionMenuView

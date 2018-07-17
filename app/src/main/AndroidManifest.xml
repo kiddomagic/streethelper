@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -52,10 +52,19 @@
         <activity android:name=".ContentCharacterActivity" />
         <activity android:name=".JobTrainingActivity" />
         <activity android:name=".AddCompanyActivity" />
-        <activity android:name=".ReportHelpingPersonActivity"></activity>
+        <activity android:name=".ReportHelpingPersonActivity" />
+
         <meta-data
             android:name="com.google.android.play.API_KEY"
-            android:value="AIzaSyC9b3g1NL9L8usildqQH2_dWikaiBazQm4"/>
+            android:value="AIzaSyC9b3g1NL9L8usildqQH2_dWikaiBazQm4" />
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

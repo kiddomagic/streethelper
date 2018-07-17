@@ -23,7 +23,7 @@
 
             <ImageButton
                 android:layout_width="196dp"
-                android:layout_height="wrap_content"
+                android:layout_height="152dp"
                 android:src="@drawable/images"
                 android:onClick="clickToMedical"/>
             <TextView

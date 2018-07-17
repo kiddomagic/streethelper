@@ -37,7 +37,7 @@ public class JobTrainingActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        Toast.makeText(JobTrainingActivity.this, "Đăng kí thành công, Thông tin có trong thời gian tới", Toast.LENGTH_SHORT);
+        Toast.makeText(JobTrainingActivity.this, "Đăng kí thành công, Thông tin có trong thời gian tới", Toast.LENGTH_SHORT).show();
     }
 
     public void clickToAdd(View view) {
